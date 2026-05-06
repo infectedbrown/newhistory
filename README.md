@@ -2,11 +2,7 @@
 
 Site interativo com mapa e capítulos da nossa história.
 
-## Como hospedar no GitHub Pages
 
-1. Crie um repositório no GitHub (ex: `nossahistoria`)
-2. Faça upload de todos os arquivos mantendo a estrutura de pastas
-3. Vá em **Settings → Pages → Source: main branch → /root**
 4. O site estará em: `https://seu-usuario.github.io/nossahistoria`
 
 ## Estrutura de arquivos
