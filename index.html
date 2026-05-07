@@ -28,6 +28,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
 @media (max-width: 900px){
   #viewMap{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
   .world{min-width:1800px;width:1800px;height:100vh;position:relative;overflow:hidden;}
+  .sc{width:100%;background:linear-gradient(180deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.45) 60%,transparent 100%);padding:1.5rem 1.25rem 1rem;justify-content:flex-start;}
   /* Indicador de scroll */
   #scrollHint{
     position:fixed;bottom:3%;left:50%;transform:translateX(-50%);
@@ -93,12 +94,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
 .slide{min-width:100vw;height:100vh;position:relative;overflow:hidden;flex-shrink:0;background:#000;}
 .slide-bg{position:absolute;inset:0;background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#000;}
 .slide-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.5) 45%,rgba(0,0,0,0.1) 100%);}
-.sc{position:absolute;top:0;left:0;width:52%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2rem 2rem;z-index:10;}
+.sc{position:absolute;top:0;left:0;width:52%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2rem 2rem;z-index:10;background:linear-gradient(90deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.35) 70%,transparent 100%);}
 .s-num{font-size:10px;letter-spacing:0.15em;text-shadow:0 1px 6px rgba(0,0,0,0.9);color:var(--gold);text-transform:uppercase;margin-bottom:0.2rem;}
 .s-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(255,248,240,0.45);margin-bottom:0.4rem;}
 .s-date{font-size:10px;color:rgba(255,248,240,0.4);margin-bottom:0.9rem;}
-.s-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:var(--cream);line-height:1.2;margin-bottom:0.9rem;text-shadow:0 1px 8px rgba(0,0,0,0.9),0 2px 20px rgba(0,0,0,0.8);}
-.s-story{font-size:12px;line-height:1.65;color:rgba(255,248,240,0.78);margin-bottom:1.2rem;max-width:320px;text-shadow:0 1px 6px rgba(0,0,0,0.9),0 2px 12px rgba(0,0,0,0.7);}
+.s-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:#fff;line-height:1.2;margin-bottom:0.9rem;text-shadow:0 1px 8px rgba(0,0,0,1),0 2px 20px rgba(0,0,0,0.9),0 0 40px rgba(0,0,0,0.8);}
+.s-story{font-size:12px;line-height:1.65;color:rgba(255,248,240,0.95);margin-bottom:1.2rem;max-width:320px;text-shadow:0 1px 8px rgba(0,0,0,1),0 2px 16px rgba(0,0,0,0.9),0 0 30px rgba(0,0,0,0.8);}
 .s-player{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,209,102,0.2);border-radius:12px;padding:10px 14px;cursor:pointer;max-width:270px;}
 .s-vinyl{width:30px;height:30px;border-radius:50%;flex-shrink:0;background:conic-gradient(#111 0deg,var(--gold) 90deg,#111 180deg,var(--gold) 270deg,#111 360deg);}
 .s-vinyl.spin{animation:spin 2s linear infinite;}
@@ -387,7 +388,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
 </div>
 
 <!-- Mini player capa - fora do livro para evitar conflito de clique -->
-<div id="capaPlayer" style="display:flex;position:fixed;left:2rem;top:50%;transform:translateY(20%);z-index:10000;align-items:center;gap:10px;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,209,102,0.3);border-radius:30px;padding:10px 16px;max-width:220px;cursor:pointer;" onclick="toggleCapaMusic()">
+<div id="capaPlayer" style="display:flex;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:10000;align-items:center;gap:10px;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,209,102,0.3);border-radius:30px;padding:10px 16px;max-width:260px;width:calc(100% - 4rem);cursor:pointer;" onclick="toggleCapaMusic()">
  <div class="s-vinyl" id="capaVinyl" style="flex-shrink:0;"></div>
  <div style="overflow:hidden;flex:1;">
   <div style="font-size:12px;color:rgba(255,248,240,0.95);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Josefin Sans',sans-serif;font-weight:600;">Heaven</div>
