@@ -94,11 +94,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
 .slide-bg{position:absolute;inset:0;background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#000;}
 .slide-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.5) 45%,rgba(0,0,0,0.1) 100%);}
 .sc{position:absolute;top:0;left:0;width:52%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2rem 2rem;z-index:10;}
-.s-num{font-size:10px;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-bottom:0.2rem;}
+.s-num{font-size:10px;letter-spacing:0.15em;text-shadow:0 1px 6px rgba(0,0,0,0.9);color:var(--gold);text-transform:uppercase;margin-bottom:0.2rem;}
 .s-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(255,248,240,0.45);margin-bottom:0.4rem;}
 .s-date{font-size:10px;color:rgba(255,248,240,0.4);margin-bottom:0.9rem;}
-.s-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:var(--cream);line-height:1.2;margin-bottom:0.9rem;}
-.s-story{font-size:12px;line-height:1.65;color:rgba(255,248,240,0.78);margin-bottom:1.2rem;max-width:320px;}
+.s-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:var(--cream);line-height:1.2;margin-bottom:0.9rem;text-shadow:0 1px 8px rgba(0,0,0,0.9),0 2px 20px rgba(0,0,0,0.8);}
+.s-story{font-size:12px;line-height:1.65;color:rgba(255,248,240,0.78);margin-bottom:1.2rem;max-width:320px;text-shadow:0 1px 6px rgba(0,0,0,0.9),0 2px 12px rgba(0,0,0,0.7);}
 .s-player{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,209,102,0.2);border-radius:12px;padding:10px 14px;cursor:pointer;max-width:270px;}
 .s-vinyl{width:30px;height:30px;border-radius:50%;flex-shrink:0;background:conic-gradient(#111 0deg,var(--gold) 90deg,#111 180deg,var(--gold) 270deg,#111 360deg);}
 .s-vinyl.spin{animation:spin 2s linear infinite;}
@@ -203,7 +203,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
 
 #livro .sub-titulo{
   font-family:'Josefin Sans',sans-serif;
-  font-size:clamp(9px,1.8vw,13px);
+  font-size:clamp(27px,5.4vw,39px);
   letter-spacing:0.45em;
   color:rgba(255,209,102,0.8);
   text-transform:uppercase;
@@ -357,7 +357,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
  <div class="titulo-nomes">História</div>
 
  <div class="linha-ouro" style="margin-bottom:1.2rem;"></div>
- <div class="data-capa">Março — Abril · 2026</div>
+ <div class="data-capa">Março — Maio · 2026</div>
 
  <span class="coracao">♥</span>
 
@@ -375,12 +375,27 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
    animation-delay:0.5s;
  ">
   Fiz tudo isso com muito carinho e muito amor,<br>
-  cada detalhe pensado em você.<br>
+  cada detalhe pensado na gente.<br>
   <span style="color:rgba(255,209,102,0.75);">Espero que você goste. ♥</span>
  </div>
 
  <div class="hint-capa">Toque para começar</div>
+
+
+
 </div>
+</div>
+
+<!-- Mini player capa - fora do livro para evitar conflito de clique -->
+<div id="capaPlayer" style="display:flex;position:fixed;left:2rem;top:50%;transform:translateY(20%);z-index:10000;align-items:center;gap:10px;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,209,102,0.3);border-radius:30px;padding:10px 16px;max-width:220px;cursor:pointer;" onclick="toggleCapaMusic()">
+ <div class="s-vinyl" id="capaVinyl" style="flex-shrink:0;"></div>
+ <div style="overflow:hidden;flex:1;">
+  <div style="font-size:12px;color:rgba(255,248,240,0.95);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Josefin Sans',sans-serif;font-weight:600;">Heaven</div>
+  <div style="font-size:10px;color:rgba(255,209,102,0.7);font-family:'Josefin Sans',sans-serif;">Bryan Adams</div>
+ </div>
+ <button id="capaBtn" style="margin-left:auto;width:28px;height:28px;border-radius:50%;background:#ffd166;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+  <svg viewBox="0 0 10 10" width="10" height="10"><polygon points="2,1 9,5 2,9" fill="#000"/></svg>
+ </button>
 </div>
 
 <!-- MAPA -->
@@ -774,7 +789,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
   </style>
 
   <!-- VIOLAO -->
-  <div style="position:absolute;left:200px;bottom:3%;z-index:8;pointer-events:none;">
+  <div style="position:absolute;left:1480px;bottom:3%;z-index:8;pointer-events:none;">
    <div class="violao-inner" style="display:inline-block;">
     <svg width="38" height="65" viewBox="0 0 38 65" fill="none">
      <!-- corpo inferior -->
@@ -811,7 +826,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
   </div>
 
   <!-- PANDEIRO -->
-  <div style="position:absolute;left:310px;bottom:3%;z-index:8;pointer-events:none;">
+  <div style="position:absolute;left:1600px;bottom:3%;z-index:8;pointer-events:none;">
    <div class="pandeiro-inner" style="display:inline-block;">
     <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
      <!-- aro -->
@@ -836,8 +851,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
    <div class="note-pand-3" style="position:absolute;top:-18px;left:24px;font-size:11px;color:#ffd166;">♩</div>
   </div>
 
-  <!-- SIMBOLO DE SOM (ondas) — centralizado entre violão(200px) e pandeiro(310px), meio = 255px, offset -20px = 235px -->
-  <div id="simboloSom" style="position:absolute;left:235px;bottom:12%;z-index:8;pointer-events:none;opacity:0;">
+  <!-- SIMBOLO DE SOM (ondas) — centralizado entre violão(1480px) e pandeiro(1600px), meio = 1540px -->
+  <div id="simboloSom" style="position:absolute;left:1540px;bottom:3%;z-index:8;pointer-events:none;opacity:0;transform:translateY(-50%);">
    <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
     <path d="M12 14 Q9 21 12 28" stroke="rgba(255,209,102,0.85)" stroke-width="2" fill="none" stroke-linecap="round">
      <animate attributeName="opacity" values="0.4;1;0.4" dur="0.8s" repeatCount="indefinite"/>
@@ -1265,6 +1280,27 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
   </div>
 
 
+  <!-- IGREJA -->
+  <!-- Versículo acima da Igreja -->
+  <div style="position:absolute;left:220px;bottom:calc(38% + 160px);transform:translateX(-50%);z-index:15;text-align:center;pointer-events:none;max-width:320px;">
+   <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(255,235,185,0.95);line-height:1.7;text-shadow:0 1px 8px rgba(0,0,0,0.9);margin:0 0 4px;white-space:nowrap;">
+    "Acima de tudo, porém, revistam-se do amor, que é o elo perfeito."
+   </p>
+   <span style="font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:0.12em;color:rgba(255,209,102,0.7);">Colossenses 3:14</span>
+  </div>
+
+  <div onclick="abrirIgreja()" style="position:absolute;left:220px;bottom:38%;transform:translateX(-50%);z-index:15;cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;">
+   <div style="position:relative;display:inline-block;">
+    <!-- Anjos voando ao redor -->
+    <span style="position:absolute;font-size:1.4rem;animation:angelFly1 3s ease-in-out infinite;top:-20px;left:-24px;">👼</span>
+    <span style="position:absolute;font-size:1.4rem;animation:angelFly2 3.5s ease-in-out infinite;top:-28px;right:-20px;">👼</span>
+    <span style="position:absolute;font-size:1.4rem;animation:angelFly3 4s ease-in-out infinite;top:-10px;left:50%;transform:translateX(-50%);">👼</span>
+    <div style="font-size:2.8rem;filter:drop-shadow(0 2px 8px rgba(255,209,102,0.6));">⛪</div>
+   </div>
+   <div class="mk-dot"></div>
+   <div class="mk-lbl">Igreja</div>
+  </div>
+
   <!-- CAP09 ALIANCA -->
   <div onclick="cap9clicarMapa()" style="position:absolute;left:1200px;bottom:14%;transform:translateX(-50%);z-index:15;cursor:pointer;text-align:center;flex-direction:column;display:flex;align-items:center;">
    <div id="cap9mapaIcon" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;">
@@ -1298,38 +1334,31 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
    <div class="mk-lbl" style="color:rgba(200,220,255,0.95);">Cap 09</div>
   </div>
 
-  <!-- COMING SOON -->
-  <div id="comingSoonMap" style="position:absolute;bottom:14%;left:1380px;display:flex;align-items:flex-end;gap:60px;z-index:5;">
-   <!-- Cap 10 fantasma -->
-   <div style="display:flex;flex-direction:column;align-items:center;text-align:center;animation:ghostFloat 3s ease-in-out infinite;opacity:0.7;">
-    <div style="height:108px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:30px;filter:blur(1px);">❓</div>
+    <!-- COMING SOON -->
+  <div id="comingSoonMap" style="position:absolute;bottom:14%;left:1560px;display:flex;align-items:flex-end;gap:60px;z-index:5;">
+   <div style="display:flex;flex-direction:column;align-items:center;text-align:center;animation:ghostFloat 3s ease-in-out infinite;opacity:0.7;cursor:pointer;">
+    <div style="height:80px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:32px;filter:blur(0.5px);">🔒</div>
     <div class="mk-dot" style="background:rgba(255,209,102,0.3);animation:none;"></div>
     <div class="mk-lbl" style="color:rgba(255,220,130,0.45);">Cap 10</div>
    </div>
-   <!-- Cap 11 fantasma -->
-   <div style="display:flex;flex-direction:column;align-items:center;text-align:center;animation:ghostFloat 3.6s ease-in-out infinite;animation-delay:0.4s;opacity:0.45;">
-    <div style="height:108px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:26px;filter:blur(1.5px);">❓</div>
-    <div class="mk-dot" style="background:rgba(255,209,102,0.18);animation:none;"></div>
-    <div class="mk-lbl" style="color:rgba(255,220,130,0.28);">Cap 11</div>
+   <div style="display:flex;flex-direction:column;align-items:center;text-align:center;animation:ghostFloat 3.6s ease-in-out infinite;opacity:0.5;cursor:pointer;">
+    <div style="height:80px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:32px;filter:blur(1px);">🔒</div>
+    <div class="mk-dot" style="background:rgba(255,209,102,0.2);animation:none;"></div>
+    <div class="mk-lbl" style="color:rgba(255,220,130,0.3);">Cap 11</div>
    </div>
-   <!-- Cap 12 fantasma -->
-   <div style="display:flex;flex-direction:column;align-items:center;text-align:center;animation:ghostFloat 4.2s ease-in-out infinite;animation-delay:0.8s;opacity:0.25;">
-    <div style="height:108px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:22px;filter:blur(2px);">❓</div>
+   <div style="display:flex;flex-direction:column;align-items:center;text-align:center;animation:ghostFloat 4.2s ease-in-out infinite;opacity:0.3;">
+    <div style="height:80px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:32px;filter:blur(1.5px);">🔒</div>
     <div class="mk-dot" style="background:rgba(255,209,102,0.1);animation:none;"></div>
-    <div class="mk-lbl" style="color:rgba(255,220,130,0.16);">Cap 12</div>
+    <div class="mk-lbl" style="color:rgba(255,220,130,0.2);">Cap 12</div>
    </div>
-   <!-- Texto coming soon -->
-   <div style="display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding-bottom:4px;animation:comingSoonPulse 2.5s ease-in-out infinite;height:calc(108px + 13px + 3px + 18px);">
-    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,26px);color:rgba(255,209,102,0.6);letter-spacing:0.15em;white-space:nowrap;text-shadow:0 0 12px rgba(255,209,102,0.4);">coming soon...</div>
-    <div style="width:80px;height:1px;background:linear-gradient(90deg,rgba(255,209,102,0.4),transparent);margin-top:5px;"></div>
-   </div>
+   <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,209,102,0.35);padding-bottom:8px;">coming soon...</div>
   </div>
 
 
   <!-- PLAYER MAPA -->
   <div class="map-music" id="mmPlayer" onclick="toggleMapMusic()">
    <div class="mm-vinyl" id="mmV"></div>
-   <div class="mm-info"><div class="mm-song">Wicked Game</div><div class="mm-artist">Chris Isaak</div></div>
+   <div class="mm-info"><div class="mm-song" id="mmSong">Wicked Game</div><div class="mm-artist" id="mmArtist">Chris Isaak</div></div>
    <button class="mm-btn" id="mmB"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
   </div>
 
@@ -1732,10 +1761,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
        </p>
 
        <!-- Player musica -->
-       <div style="margin-top:1.5rem;" class="s-player" onclick="toggleSlideMusic(8)">
-        <div class="s-vinyl" id="sv8"></div>
-        <div><div class="s-song">Em breve...</div><div class="s-artist"></div></div>
-        <button class="s-pbtn" id="sb8"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+       <div style="margin-top:1.5rem;display:flex;justify-content:center;">
+        <div class="s-player" onclick="toggleSlideMusic(8)" style="max-width:320px;width:100%;border-radius:50px;">
+         <div class="s-vinyl" id="sv8"></div>
+         <div style="flex:1;text-align:center;"><div class="s-song">Dust in the Wind</div><div class="s-artist">Kansas</div></div>
+         <button class="s-pbtn" id="sb8"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        </div>
        </div>
 
       </div>
@@ -1770,6 +1801,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
  </div>
 </div>
 
+<!-- LIGHTBOX IGREJA -->
+<div id="lbIgreja" onclick="fecharIgreja()" style="display:none;position:fixed;inset:0;z-index:700;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;">
+ <button onclick="event.stopPropagation();fecharIgreja();" style="position:absolute;top:1rem;right:1rem;color:#fff;font-size:2.2rem;cursor:pointer;background:none;border:none;z-index:10;line-height:1;padding:0.2rem 0.5rem;">&#215;</button>
+ <img src="fotos/igreja.jpg" alt="Igreja" onclick="event.stopPropagation()" style="max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;">
+</div>
+
 <!-- LIGHTBOX FOTO -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
  <button class="lb-close">&#215;</button>
@@ -1797,6 +1834,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Jo
 <audio id="a5" loop><source src="musicas/musica07.mp3" type="audio/mpeg"></audio>
 <audio id="aM" loop><source src="musicas/musica08.mp3" type="audio/mpeg"></audio>
 <audio id="aSitio" loop><source src="musicas/musica_sitio.mp3" type="audio/mpeg"></audio>
+<audio id="aCapa" loop><source src="musicas/musica12.mp3" type="audio/mpeg"></audio>
+<audio id="aTexto" loop preload="auto"><source src="musicas/musica11.mp3" type="audio/mpeg"></audio>
+<audio id="aIgreja" loop preload="auto"><source src="musicas/musica13.mp3" type="audio/mpeg"></audio>
 
 <script>
 var cur=0,N=9,mapOn=false,panelIdx=-1;
@@ -1835,16 +1875,38 @@ var chapters=[
  {num:'06',title:'Nosso primeiro video juntos',date:'11 de abril de 2026 · 13h47',story:'Um momento gravado sem querer, mas perfeito. Aquela tarde ficou guardada — não só no celular, mas na memória do coração.',song:'Inofensiva',artist:'Yago Oproprio'},
   {num:'07',title:'Meu Objetivo é Sempre Encontrar Você na Linha de Chegada',date:'Com todo meu coração',story:'Eu te disse logo quando cheguei o quanto foi especial o seu apoio nesse dia. E o quanto eu pedi a Deus que um dia isso acontecesse. Saber que tem alguém me esperando na linha de chegada muda tudo. A vida é mais bonita com você.',song:'Beautiful Life',artist:'Gui Boratto'},
   {num:'08',title:'Cão Véio — Nossa primeira vez aqui',date:'29 de abril de 2026',story:'Um jantar especial, boa comida, boa companhia. Cada momento contigo vira uma memória que quero guardar para sempre.',song:'Aliança',artist:'Tribalistas'},
-  {num:'09',title:'Você quer namorar comigo?',date:'02 de maio de 2026',story:'',song:'Em breve...',artist:''}
+  {num:'09',title:'Você quer namorar comigo?',date:'02 de maio de 2026',story:'',song:'Dust in the Wind',artist:'Kansas'}
 ];
 
+function toggleCapaMusic(){
+ var a=document.getElementById('aCapa');
+ var btn=document.getElementById('capaBtn');
+ var vinyl=document.getElementById('capaVinyl');
+ if(!a)return;
+ if(a.paused){
+  if(a.currentTime<15){a.currentTime=15;}
+  a.play().catch(function(){});
+  if(btn)btn.innerHTML='<svg viewBox="0 0 10 10" width="10" height="10"><rect x="1" y="1" width="3" height="8" rx="1" fill="#000"/><rect x="6" y="1" width="3" height="8" rx="1" fill="#000"/></svg>';
+  if(vinyl)vinyl.style.animation='spin 2s linear infinite';
+ } else {
+  a.pause();
+  if(btn)btn.innerHTML='<svg viewBox="0 0 10 10" width="10" height="10"><polygon points="2,1 9,5 2,9" fill="#000"/></svg>';
+  if(vinyl)vinyl.style.animation='';
+ }
+}
 function abrirLivro(){
  var l=document.getElementById('livro');
  l.classList.add('hide');
+ var cp=document.getElementById('capaPlayer');if(cp)cp.style.display='none';
  setTimeout(function(){
   l.style.display='none';
+  var aC=document.getElementById('aCapa');
+  if(aC){aC.pause();}
   var aM=document.getElementById('aM');
-  if(aM){aM.play().catch(function(){});}
+  if(aM){
+   if(aM.readyState>=2){aM.currentTime=105;aM.play().catch(function(){});}
+   else{aM.addEventListener('canplay',function h(){aM.removeEventListener('canplay',h);aM.currentTime=105;aM.play().catch(function(){});});}
+  }
   var b=document.getElementById('mmB');
   if(b)b.innerHTML='<svg viewBox="0 0 10 10"><rect x="1" y="1" width="3" height="8" rx="1" fill="#000"/><rect x="6" y="1" width="3" height="8" rx="1" fill="#000"/></svg>';
   var v=document.getElementById('mmV');
@@ -1855,11 +1917,23 @@ function abrirLivro(){
 }
 
 function showMap(){
+ // Stop Heaven (capa music) explicitly
+ var aC=document.getElementById('aCapa');
+ if(aC){aC.pause();}
  stopAll();
  document.getElementById('viewMap').style.display='block';
  document.getElementById('viewChapters').style.display='none';
  document.getElementById('mmPlayer').style.display='flex';
  var v=document.getElementById('vid6');if(v)v.pause();
+ // Start Wicked Game at 1:45 (105s)
+ var aM=document.getElementById('aM');
+ if(aM){
+   if(aM.readyState>=2){aM.currentTime=105;aM.play().catch(function(){});}
+   else{aM.addEventListener('canplay',function h(){aM.removeEventListener('canplay',h);aM.currentTime=105;aM.play().catch(function(){});});}
+   mapOn=true;
+   var mmV=document.getElementById('mmV');if(mmV)mmV.classList.add('spin');
+   var mmB=document.getElementById('mmB');if(mmB)mmB.innerHTML='<svg viewBox="0 0 10 10"><rect x="1" y="1" width="3" height="8" rx="1"/><rect x="6" y="1" width="3" height="8" rx="1"/></svg>';
+ }
 }
 function showChapters(n){
  document.getElementById('viewChapters').style.display='block';
@@ -1898,8 +1972,14 @@ function _goTo(n){
   var a=document.getElementById('a'+cur);
   if(a){playAudioFrom(cur);setPlayerUI(cur,true);}
   if(cur===5){var v=document.getElementById('vid6');if(v){v.currentTime=0;v.play().catch(function(){});}}
-    if(cur===6){var v=document.getElementById('vid7');if(v){v.currentTime=0;v.play().catch(function(){});}}
-
+  if(cur===6){var v=document.getElementById('vid7');if(v){v.currentTime=0;v.play().catch(function(){});}}
+  var slide=document.getElementById('slide'+cur);
+  if(slide){
+   var sc=slide.querySelector('.sc');
+   var bg=slide.querySelector('.slide-bg');
+   if(sc){sc.classList.remove('slide-in');void sc.offsetWidth;sc.classList.add('slide-in');}
+   if(bg){bg.classList.remove('slide-in');void bg.offsetWidth;bg.classList.add('slide-in');}
+  }
  },350);
 }
 
@@ -1964,11 +2044,24 @@ function stopAll(){
  var aM=document.getElementById('aM');if(aM)aM.pause();
  var aS=document.getElementById('aSitio');if(aS)aS.pause();
  var aT=document.getElementById('aTexto');if(aT)aT.pause();
+ var aI=document.getElementById('aIgreja');if(aI)aI.pause();
+ var aC=document.getElementById('aCapa');if(aC)aC.pause();
  var b=document.getElementById('mmB');if(b)b.innerHTML='<svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>';
  var v=document.getElementById('mmV');if(v)v.classList.remove('spin');
  mapOn=false;setPanelUI(false);setInstrumentosPlaying(false);
 }
 
+function abrirIgreja(){
+ stopAll();
+ var a=document.getElementById('aIgreja');
+ if(a){a.currentTime=155;a.play().catch(function(){});}
+ document.getElementById('lbIgreja').style.display='flex';
+}
+function fecharIgreja(){
+ var a=document.getElementById('aIgreja');
+ if(a){a.pause();a.currentTime=0;}
+ document.getElementById('lbIgreja').style.display='none';
+}
 function openLightbox(el){
  var src=typeof el==='string'?el:el.getAttribute('data-src');
  if(!src)return;
@@ -2280,10 +2373,21 @@ function fecharPraia(){
   document.getElementById('praiaFogos').style.display='none';
   // Agora mostrar o texto romantico
   document.getElementById('cap9texto').style.display='block';
-  var a=document.getElementById('a8');
-  if(a){
-    var src = a.querySelector('source') ? a.querySelector('source').getAttribute('src') : '';
-    if(src && src.length > 100){ stopAll(); a.play().catch(function(){}); setPlayerUI(8,true); }
+  // Tocar Dust in the Wind a partir de 2:11 (131s)
+  stopAll();
+  var aT=document.getElementById('aTexto');
+  if(aT){
+    aT.currentTime=131;
+    aT.play().catch(function(){});
+    // Update bottom player bar
+    var mmSong=document.getElementById('mmSong');
+    var mmArtist=document.getElementById('mmArtist');
+    if(mmSong) mmSong.textContent='Dust in the Wind';
+    if(mmArtist) mmArtist.textContent='Kansas';
+    var mmV=document.getElementById('mmV');
+    if(mmV) mmV.classList.add('spin');
+    var mmB=document.getElementById('mmB');
+    if(mmB) mmB.innerHTML='<svg viewBox="0 0 10 10"><rect x="1" y="1" width="3" height="8" rx="1"/><rect x="6" y="1" width="3" height="8" rx="1"/></svg>';
   }
 }
 
@@ -2295,6 +2399,10 @@ document.addEventListener('DOMContentLoaded', function(){
   var btnNao = document.getElementById('btnCap9Nao');
   if(btnSim) btnSim.addEventListener('click', function(e){ e.stopPropagation(); e.preventDefault(); cap9sim(); }, true);
   if(btnNao) btnNao.addEventListener('click', function(e){ e.stopPropagation(); e.preventDefault(); cap9nao(); }, true);
+  var aC=document.getElementById('aCapa');
+  if(aC){aC.currentTime=15;aC.play().catch(function(){});}
+  var cp=document.getElementById('capaPlayer');
+  if(cp)cp.style.display='flex';
 });
 
 buildDots();
@@ -2415,7 +2523,10 @@ buildDots();
   #praiaFogos .frase-fogos{min-width:1600px;}
  }
 
- @keyframes horseWalk{0%{left:-180px;}100%{left:110%;}}
+ @keyframes angelFly1{0%,100%{transform:translate(0,0) rotate(-10deg);}50%{transform:translate(-6px,-8px) rotate(10deg);}}
+@keyframes angelFly2{0%,100%{transform:translate(0,0) rotate(8deg);}50%{transform:translate(6px,-10px) rotate(-8deg);}}
+@keyframes angelFly3{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-10px);}}
+@keyframes horseWalk{0%{left:-180px;}100%{left:110%;}}
  @keyframes horseWalkBack{0%{left:110%;}100%{left:-180px;}}
  @keyframes dogWalk{0%{left:5%;transform:scaleX(1);}48%{left:70%;transform:scaleX(1);}50%{left:70%;transform:scaleX(-1);}98%{left:5%;transform:scaleX(-1);}100%{left:5%;transform:scaleX(1);}}
  @keyframes smokePuff{0%{transform:translateY(0) scale(1);opacity:0.6;}100%{transform:translateY(-40px) scale(2.5);opacity:0;}}
