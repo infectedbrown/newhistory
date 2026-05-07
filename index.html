@@ -1963,6 +1963,7 @@ function stopAll(){
  for(var i=0;i<N;i++){var a=document.getElementById('a'+i);if(a)a.pause();setPlayerUI(i,false);}
  var aM=document.getElementById('aM');if(aM)aM.pause();
  var aS=document.getElementById('aSitio');if(aS)aS.pause();
+ var aT=document.getElementById('aTexto');if(aT)aT.pause();
  var b=document.getElementById('mmB');if(b)b.innerHTML='<svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>';
  var v=document.getElementById('mmV');if(v)v.classList.remove('spin');
  mapOn=false;setPanelUI(false);setInstrumentosPlaying(false);
@@ -2022,6 +2023,7 @@ document.addEventListener('touchend',function(e){
 },{passive:true});
 document.addEventListener('mousedown',function(e){if(!chapVis())return;if(praiaVis())return;if(e.target.closest('#cap9botoesOverlay'))return;dragX=e.clientX;dragY=e.clientY;dragging=true;dragMoved=false;});
 document.addEventListener('mousemove',function(e){if(!dragging)return;if(Math.abs(e.clientX-dragX)>5)dragMoved=true;});
+document.addEventListener('touchmove',function(e){if(praiaVis()){e.stopPropagation();return;}if(!dragging)return;if(Math.abs(e.touches[0].clientX-dragX)>5)dragMoved=true;},{passive:false});
 document.addEventListener('mouseup',function(e){
  if(!dragging||!chapVis()){dragging=false;return;}
  dragging=false;if(!dragMoved)return;
@@ -2405,9 +2407,9 @@ buildDots();
 
  /* Animações sítio */
  /* SCROLL MOBILE SITIO */
- #praiaFogos{overflow:hidden;}
+ #praiaFogos{overflow:hidden;overscroll-behavior:contain;touch-action:pan-x;}
  @media (max-width:900px){
-  #praiaFogos{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:none;}
+  #praiaFogos{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:none;overscroll-behavior-x:contain;touch-action:pan-x;}
   #praiaFogos .sitio-scene-wrap{min-width:1600px;width:1600px;height:100%;position:relative;overflow:visible;}
   #praiaFogos .sitio-bg{position:absolute;left:0;top:0;width:100%;height:100%;}
   #praiaFogos .frase-fogos{min-width:1600px;}
