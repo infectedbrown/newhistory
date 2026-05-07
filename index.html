@@ -2402,6 +2402,14 @@ buildDots();
  }
 
  /* Animações sítio */
+ /* SCROLL MOBILE SITIO */
+ @media (max-width:900px){
+  #praiaFogos{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
+  #praiaFogos .sitio-scene-wrap{min-width:1600px;width:1600px;height:100%;position:relative;}
+  #praiaFogos .sitio-bg{position:absolute;left:0;top:0;width:100%;height:100%;}
+  #praiaFogos .frase-fogos{min-width:1600px;}
+ }
+
  @keyframes horseWalk{0%{left:-180px;}100%{left:110%;}}
  @keyframes horseWalkBack{0%{left:110%;}100%{left:-180px;}}
  @keyframes dogWalk{0%{left:5%;transform:scaleX(1);}48%{left:70%;transform:scaleX(1);}50%{left:70%;transform:scaleX(-1);}98%{left:5%;transform:scaleX(-1);}100%{left:5%;transform:scaleX(1);}}
@@ -2419,8 +2427,7 @@ buildDots();
  @keyframes flagWave{0%,100%{transform:skewX(0deg);}50%{transform:skewX(-10deg);}}
  @keyframes floatUp{0%{transform:translateY(0) translateX(0);opacity:0;}20%{opacity:1;}80%{opacity:0.8;}100%{transform:translateY(-100vh) translateX(20px);opacity:0;}}
  </style>
-
- <!-- FUNDO PÔR DO SOL TEXAS -->
+ <div class="sitio-scene-wrap">
  <div class="sitio-bg"></div>
 
  <!-- ESTRELAS (céu noturno/crepúsculo superior) -->
@@ -3376,7 +3383,8 @@ buildDots();
  <!-- Botão voltar ao mapa -->
  <button onclick="document.getElementById('praiaFogos').style.display='none';document.getElementById('viewMap').style.display='block';document.getElementById('viewChapters').style.display='none';" style="position:absolute;top:1.25rem;left:1.25rem;z-index:9999;background:rgba(0,0,0,0.5);border:1px solid rgba(255,209,102,0.35);border-radius:20px;padding:7px 16px;color:#ffd166;font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:0.12em;cursor:pointer;">← Voltar ao mapa</button>
 
-</div>
+
+ </div><!-- fim sitio-scene-wrap --></div>
 
 </body>
 </html
